@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3a9ed2ea-c0cb-4fc8-8316-7b19e6be286c" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../TD/Assets/Scripts/Tower/Tower.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../TD/Assets/Scripts/Enemy/Enemy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/79C7B132-C517-45CB-AE03-EEBEA8111C0E/7d/38706217/EventDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/DiceRoll.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="2YZiV6EK6m98ovqcO1zHxleo6lS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30010834" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16380">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="16380" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3a9ed2ea-c0cb-4fc8-8316-7b19e6be286c" name="Default Changelist" comment="" />
+      <created>1700739522307</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700739522307</updated>
+      <workItem from="1700739523859" duration="14147000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="520" height="464" key="DebuggerActiveHint" timestamp="1700821426354">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="520" height="464" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1700821426354" />
+    <state width="1877" height="194" key="GridCell.Tab.0.bottom" timestamp="1700821150769">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1700821150769" />
+    <state width="1877" height="194" key="GridCell.Tab.0.center" timestamp="1700821150769">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1700821150769" />
+    <state width="1877" height="194" key="GridCell.Tab.0.left" timestamp="1700821150769">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1700821150769" />
+    <state width="1877" height="194" key="GridCell.Tab.0.right" timestamp="1700821150769">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1700821150769" />
+    <state width="1877" height="194" key="GridCell.Tab.1.bottom" timestamp="1700821156660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1700821156660" />
+    <state width="1877" height="194" key="GridCell.Tab.1.center" timestamp="1700821156660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1700821156660" />
+    <state width="1877" height="194" key="GridCell.Tab.1.left" timestamp="1700821156660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1700821156660" />
+    <state width="1877" height="194" key="GridCell.Tab.1.right" timestamp="1700821156660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1700821156660" />
+    <state width="1877" height="194" key="GridCell.Tab.2.bottom" timestamp="1700821150670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1700821150670" />
+    <state width="1877" height="194" key="GridCell.Tab.2.center" timestamp="1700821150670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1700821150670" />
+    <state width="1877" height="194" key="GridCell.Tab.2.left" timestamp="1700821150670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1700821150670" />
+    <state width="1877" height="194" key="GridCell.Tab.2.right" timestamp="1700821150670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1700821150670" />
+    <state width="1877" height="194" key="GridCell.Tab.3.bottom" timestamp="1700821150670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1700821150670" />
+    <state width="1877" height="194" key="GridCell.Tab.3.center" timestamp="1700821150670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1700821150670" />
+    <state width="1877" height="194" key="GridCell.Tab.3.left" timestamp="1700821150670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1700821150670" />
+    <state width="1877" height="194" key="GridCell.Tab.3.right" timestamp="1700821150670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1700821150670" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/DiceRoll.cs</url>
+          <line>72</line>
+          <properties documentPath="C:\Users\User\Dice_D20_UI\Assets\DiceRoll.cs" initialLine="57">
+            <startOffsets>
+              <option value="2026" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2064" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/DiceRoll.cs</url>
+          <line>26</line>
+          <properties documentPath="C:\Users\User\Dice_D20_UI\Assets\DiceRoll.cs" initialLine="26">
+            <startOffsets>
+              <option value="763" />
+            </startOffsets>
+            <endOffsets>
+              <option value="809" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#UnityEngine.Vector2" memberName="normalized" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>

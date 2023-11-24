@@ -1,0 +1,703 @@
+fileFormatVersion: 2
+guid: cbb87d0d93066184eb1c3b2f1b157d87
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DiceSprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 795
+        width: 184
+        height: 196
+      alignment: 9
+      pivot: {x: 0.42408925, y: 0.60570806}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fd4024236743ca4bac2a9191aa703e9
+      internalID: -1647704953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 792.8
+        width: 184
+        height: 198.2
+      alignment: 9
+      pivot: {x: 0.4908177, y: 0.54262227}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61383d5d2c5fecf4189dbb4f23b54f06
+      internalID: -1641889925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_2
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 792.8
+        width: 184
+        height: 198.2
+      alignment: 9
+      pivot: {x: 0.47245324, y: 0.55114657}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 852d6c44c11fa6246a8548f8b208fb3c
+      internalID: 1662395937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_3
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 792.8
+        width: 184
+        height: 198.2
+      alignment: 9
+      pivot: {x: 0.5, y: 0.470165}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9666f6ff7a525d44e898d690df6309be
+      internalID: -967358583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_4
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 792.8
+        width: 184
+        height: 198.2
+      alignment: 9
+      pivot: {x: 0.4449068, y: 0.60655487}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdf8c37387b99814e879f4ceedb2dbc2
+      internalID: 1468857199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_5
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 595
+        width: 184
+        height: 199
+      alignment: 9
+      pivot: {x: 0.42654204, y: 0.4575496}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae2ae828a5b1884499db242df0c6976d
+      internalID: -443754430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_6
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 596
+        width: 184
+        height: 197
+      alignment: 9
+      pivot: {x: 0.44031543, y: 0.5937683}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d1a740a87b67049a6a66c8721ac8c0
+      internalID: -1907697590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_7
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 594.8
+        width: 184
+        height: 198.2
+      alignment: 9
+      pivot: {x: 0.4632711, y: 0.5255734}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f487117ffcd9b47ac51748c7cbd900
+      internalID: -742066261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_8
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 594.8
+        width: 184
+        height: 198.2
+      alignment: 9
+      pivot: {x: 0.48622662, y: 0.54688424}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d057cc3f6313504dbaa6cfc0b0f9437
+      internalID: 1075519164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_9
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 595
+        width: 182
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeb67326fcce81b48851ab1370412368
+      internalID: 1715186990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 396.8
+        width: 184
+        height: 198.2
+      alignment: 9
+      pivot: {x: 0.46155694, y: 0.5713773}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daa5e8d0e354dbc44a2e819dc297b97e
+      internalID: -1443856177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_11
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 398
+        width: 184
+        height: 198
+      alignment: 9
+      pivot: {x: 0.42311412, y: 0.57144934}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 784a71ac11f94db4c876f58ea60d6649
+      internalID: 1714835356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_12
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 398
+        width: 183
+        height: 197
+      alignment: 9
+      pivot: {x: 0.46155682, y: 0.5951698}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da885304703ae644294b73cf48bb4334
+      internalID: 1939914128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_13
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 396.8
+        width: 184
+        height: 198.2
+      alignment: 9
+      pivot: {x: 0.46155682, y: 0.49999973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fd33a83742f37d4dbab1030bb92e287
+      internalID: -1852875475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_14
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 396.8
+        width: 184
+        height: 198.2
+      alignment: 9
+      pivot: {x: 0.4871856, y: 0.5356885}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21b4bc243319d774a82b04c96445f48d
+      internalID: 1091953669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 198.8
+        width: 184
+        height: 198.2
+      alignment: 9
+      pivot: {x: 0.4038924, y: 0.49999982}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81dd34b40687c1140b6d0b2c89910ade
+      internalID: -1181167696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_16
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 199
+        width: 184
+        height: 199
+      alignment: 9
+      pivot: {x: 0.43592834, y: 0.55954105}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 801eb947cb9902142901fcdb38444aef
+      internalID: -236119587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_17
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 199
+        width: 183
+        height: 199
+      alignment: 9
+      pivot: {x: 0.4413402, y: 0.5292568}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 704516dd70599cb4c9caf3cf61ee7e79
+      internalID: 1233479398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_18
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 198.8
+        width: 184
+        height: 198.2
+      alignment: 9
+      pivot: {x: 0.5320358, y: 0.49999982}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3358233c34d27424cb202b5af8622cb1
+      internalID: 3334935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_19
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 199
+        width: 184
+        height: 198
+      alignment: 9
+      pivot: {x: 0.48077825, y: 0.6131282}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df703c74bd485af449dc6caa89993a90
+      internalID: -1057139922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 184
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de0cc3edeca3024eafb9fd728c31209
+      internalID: 1685326892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_21
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 0.80000305
+        width: 184
+        height: 198.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30063e45e1a86fe47b6093728340cd98
+      internalID: 509709586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_22
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 1
+        width: 192
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b03bff3900b6df4b92f2f84dff31702
+      internalID: -2095167785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_23
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 176
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b1c97a811fd5c645a032e20ddd5ccfd
+      internalID: 2101808985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiceSprite_24
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 0.80000305
+        width: 184
+        height: 198.2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 045093fc023d8e04e85bb20bff7522c1
+      internalID: -292381847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      DiceSprite_0: -1647704953
+      DiceSprite_1: -1641889925
+      DiceSprite_10: -1443856177
+      DiceSprite_11: 1714835356
+      DiceSprite_12: 1939914128
+      DiceSprite_13: -1852875475
+      DiceSprite_14: 1091953669
+      DiceSprite_15: -1181167696
+      DiceSprite_16: -236119587
+      DiceSprite_17: 1233479398
+      DiceSprite_18: 3334935
+      DiceSprite_19: -1057139922
+      DiceSprite_2: 1662395937
+      DiceSprite_20: 1685326892
+      DiceSprite_21: 509709586
+      DiceSprite_22: -2095167785
+      DiceSprite_23: 2101808985
+      DiceSprite_24: -292381847
+      DiceSprite_3: -967358583
+      DiceSprite_4: 1468857199
+      DiceSprite_5: -443754430
+      DiceSprite_6: -1907697590
+      DiceSprite_7: -742066261
+      DiceSprite_8: 1075519164
+      DiceSprite_9: 1715186990
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
