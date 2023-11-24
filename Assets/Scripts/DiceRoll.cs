@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,43 +6,49 @@ using UnityEngine.UI;
 public class DiceRoll : MonoBehaviour
 {
     public float moveSpeed = 5f;
-
-    private Rigidbody2D _rb; 
-    private Animator _animator;
     public Sprite resultSprites;
     
-    private int countHitWall;
-    private int MaxCountHitWall;
+    private Rigidbody2D _rb; 
+    private Animator _animator;
     private RectTransform _rctTransform;
     private TextMeshProUGUI _text;
-    
+    private int _countHitWall;
+    private int _maxCountHitWall;
+    private int _value;
+
+    private bool _isRolling;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        countHitWall = 0;
-        MaxCountHitWall = Random.Range(6, 9);
+        _countHitWall = 0;
         _rctTransform = GetComponent<RectTransform>();
         _text = GetComponentInChildren<TextMeshProUGUI>();
+        _isRolling = false;
     }
 
     void Update()
     {
         GetComponent<RectTransform>().rotation = Quaternion.identity;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !_isRolling)
         {
-            StartMovingRandomDirection();
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            StopRolling();
+            StartRollingRandomDirection();
         }
     }
 
-    void StartMovingRandomDirection()
+    private  void PrepareToStartRoll()
     {
+        _isRolling = true;
+        _countHitWall = 0;
+        _maxCountHitWall = Random.Range(5, 9);
         _text.enabled = false;
         _animator.enabled = true;
+    }
+    
+    private void StartRollingRandomDirection()
+    {
+        PrepareToStartRoll();
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
         _rb.velocity = randomDirection * moveSpeed;
         _animator.Play("Rolling");
@@ -51,7 +56,7 @@ public class DiceRoll : MonoBehaviour
 
     private void StopRolling()
     {
-        StartCoroutine(MoveToPosition(_rctTransform.position, new Vector3(0,1,90f), 2));
+        StartCoroutine(MoveToPosition(_rctTransform.position, new Vector3(0,1,90f), 1.5f));
     }
     
     IEnumerator MoveToPosition(Vector3 startPosition, Vector3 targetPosition, float timeToMove)
@@ -69,19 +74,25 @@ public class DiceRoll : MonoBehaviour
         _animator.enabled = false;
         
         _rctTransform.position = targetPosition;
-        
-        var spriteIndex = Random.Range(0, 20);
-        _text.enabled = true;
-        _text.text = spriteIndex.ToString();
+
+        SetValueOnEndRoll();
         GetComponentInChildren<Image>().sprite = resultSprites;
+    }
+
+    private void SetValueOnEndRoll()
+    {
+        _isRolling = false;
+        _value = Random.Range(1, 21);
+        _text.enabled = true;
+        _text.text = _value.ToString();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Wall"))
         {
-            countHitWall++;
-            if (countHitWall < MaxCountHitWall)
+            _countHitWall++;
+            if (_countHitWall < _maxCountHitWall)
             {
                 Vector2 bounceDirection = (transform.position - collision.transform.position).normalized;
             
