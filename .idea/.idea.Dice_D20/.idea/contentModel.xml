@@ -13,6 +13,7 @@
         <e p="Resources" t="Include" />
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="BuffFactory.cs" t="Include" />
           <e p="Buffs.cs" t="Include" />
           <e p="DiceRoll.cs" t="Include" />
         </e>

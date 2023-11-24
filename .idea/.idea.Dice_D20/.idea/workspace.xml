@@ -11,36 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d68416d5-5336-48f6-9d3b-2672901f6e1c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Dice_D20/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dice_D20/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Background.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dice2.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dice2.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DiceRoll.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DiceRoll.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DiceSprite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DiceSprite.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rolling.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rolling.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark02.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark02.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark04.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark04.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ObjectSpin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ObjectSpin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SimpleScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SimpleScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_DigitValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_DigitValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_FrameRateCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_FrameRateCounter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_PhoneNumberValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_PhoneNumberValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_A.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_A.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_B.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_B.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_UiFrameRateCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_UiFrameRateCounter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMPro_InstructionOverlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMPro_InstructionOverlay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/cuyabra-Regular [RUS by Zephyrus].ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/cuyabra-Regular [RUS by Zephyrus].ttf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Buffs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Buffs.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +30,7 @@
         <option value="$PROJECT_DIR$/Assets/DiceRoll.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DiceRoll.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Buff.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BuffFactory.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Buffs.cs" />
       </list>
     </option>
@@ -105,7 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700823227121</updated>
       <workItem from="1700823231122" duration="6000" />
-      <workItem from="1700823266552" duration="3577000" />
+      <workItem from="1700823266552" duration="5382000" />
     </task>
     <servers />
   </component>
@@ -134,37 +106,88 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="445" height="464" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1700826475978" />
-    <state width="1877" height="375" key="GridCell.Tab.0.bottom" timestamp="1700826459135">
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom" timestamp="1700827195264">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1700826459135" />
-    <state width="1877" height="375" key="GridCell.Tab.0.center" timestamp="1700826459135">
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1700827195264" />
+    <state width="1877" height="375" key="GridCell.Tab.0.center" timestamp="1700827195264">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1700826459135" />
-    <state width="1877" height="375" key="GridCell.Tab.0.left" timestamp="1700826459135">
+    <state width="1877" height="375" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1700827195264" />
+    <state width="1877" height="375" key="GridCell.Tab.0.left" timestamp="1700827195264">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1700826459135" />
-    <state width="1877" height="375" key="GridCell.Tab.0.right" timestamp="1700826459135">
+    <state width="1877" height="375" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1700827195264" />
+    <state width="1877" height="375" key="GridCell.Tab.0.right" timestamp="1700827195264">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1700826459135" />
-    <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1700826463154">
+    <state width="1877" height="375" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1700827195264" />
+    <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1700827201123">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1700826463154" />
-    <state width="1877" height="375" key="GridCell.Tab.1.center" timestamp="1700826463153">
+    <state width="1877" height="375" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1700827201123" />
+    <state width="1877" height="375" key="GridCell.Tab.1.center" timestamp="1700827201123">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1700826463153" />
-    <state width="1877" height="375" key="GridCell.Tab.1.left" timestamp="1700826463153">
+    <state width="1877" height="375" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1700827201123" />
+    <state width="1877" height="375" key="GridCell.Tab.1.left" timestamp="1700827201123">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1700826463153" />
-    <state width="1877" height="375" key="GridCell.Tab.1.right" timestamp="1700826463153">
+    <state width="1877" height="375" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1700827201123" />
+    <state width="1877" height="375" key="GridCell.Tab.1.right" timestamp="1700827201123">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1700826463153" />
+    <state width="1877" height="375" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1700827201123" />
+    <state width="1877" height="375" key="GridCell.Tab.2.bottom" timestamp="1700827195145">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1700827195145" />
+    <state width="1877" height="375" key="GridCell.Tab.2.center" timestamp="1700827195144">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1700827195144" />
+    <state width="1877" height="375" key="GridCell.Tab.2.left" timestamp="1700827195144">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1700827195144" />
+    <state width="1877" height="375" key="GridCell.Tab.2.right" timestamp="1700827195145">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1700827195145" />
+    <state width="1877" height="375" key="GridCell.Tab.3.bottom" timestamp="1700827195145">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1700827195145" />
+    <state width="1877" height="375" key="GridCell.Tab.3.center" timestamp="1700827195145">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1700827195145" />
+    <state width="1877" height="375" key="GridCell.Tab.3.left" timestamp="1700827195145">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1700827195145" />
+    <state width="1877" height="375" key="GridCell.Tab.3.right" timestamp="1700827195145">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1700827195145" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Buffs.cs</url>
+          <line>12</line>
+          <properties documentPath="C:\Users\User\Dice_D20\Assets\Scripts\Buffs.cs" initialLine="12">
+            <startOffsets>
+              <option value="233" />
+            </startOffsets>
+            <endOffsets>
+              <option value="281" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
