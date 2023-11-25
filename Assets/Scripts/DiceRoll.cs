@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class DiceRoll : MonoBehaviour
 {
@@ -17,6 +19,9 @@ public class DiceRoll : MonoBehaviour
     private int _value;
 
     private bool _isRolling;
+    
+    public delegate void RollEndAction();
+    public static event RollEndAction OnRollComplete;
 
     void Start()
     {
@@ -26,6 +31,13 @@ public class DiceRoll : MonoBehaviour
         _rctTransform = GetComponent<RectTransform>();
         _text = GetComponentInChildren<TextMeshProUGUI>();
         _isRolling = false;
+        Buff.OnTextMoveComplete += BuffTextMoveComplete;
+    }
+
+    private void BuffTextMoveComplete(int intValue)
+    {
+        _value += intValue;
+        _text.text = _value.ToString();
     }
 
     void Update()
@@ -77,6 +89,10 @@ public class DiceRoll : MonoBehaviour
 
         SetValueOnEndRoll();
         GetComponentInChildren<Image>().sprite = resultSprites;
+        if (_value != 20 && _value != 1)
+        {
+            OnRollComplete.Invoke();
+        }
     }
 
     private void SetValueOnEndRoll()
@@ -103,5 +119,10 @@ public class DiceRoll : MonoBehaviour
                 StopRolling();
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        Buff.OnTextMoveComplete -= BuffTextMoveComplete;
     }
 }

@@ -218,6 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3542035764363787398}
+  - component: {fileID: -8255491277098188391}
   m_Layer: 0
   m_Name: BuffDex
   m_TagString: Untagged
@@ -247,6 +248,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &-8255491277098188391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6553490640565876027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 144f1c06ee084a15bbdb580fb6218578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Dex
+  Value: 5
+  nameText: {fileID: 8451892297925406656}
+  valueText: {fileID: 4301255590060872656}
 --- !u!1 &8365666043271205623
 GameObject:
   m_ObjectHideFlags: 0
