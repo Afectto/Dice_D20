@@ -8,7 +8,7 @@ public class Buff : MonoBehaviour
     public string Value;
 
     [SerializeField]private TextMeshProUGUI nameText;
-    [SerializeField]private TextMeshProUGUI valueText;
+    [SerializeField]protected TextMeshProUGUI valueText;
 
     public delegate void TextMoveCompleteAction(int intValue);
     public static event TextMoveCompleteAction OnTextMoveComplete;
@@ -18,19 +18,20 @@ public class Buff : MonoBehaviour
         Initialize();
     }
 
-    public void Initialize()
+    public virtual void Initialize()
     {
         nameText.text = Name;
         valueText.text = Value;
     }
 
-    public void StartAnimationValue()
+    public virtual void StartAnimationValue()
     {
         TextMeshProUGUI copiedText = Instantiate(valueText, valueText.rectTransform.position, Quaternion.identity);
         copiedText.transform.SetParent(transform.parent.transform,false);
         // Задаем начальные параметры копии
         copiedText.text = valueText.text;
         copiedText.rectTransform.position = valueText.rectTransform.position;
+        copiedText.enabled = true;
         
         StartCoroutine(MoveText(copiedText, new Vector3(0,1,90f), 0.8f));
     }
@@ -50,10 +51,10 @@ public class Buff : MonoBehaviour
         if (int.TryParse(textToMove.text, out int parsedValue))
         {
             intValue = parsedValue;
+            // Увеличиваем значение выпавшее на кубике
+            OnTextMoveComplete?.Invoke(intValue);
         }
         
-        // Увеличиваем значение выпавшее на кубике
-        OnTextMoveComplete?.Invoke(intValue);
         // Уничтожаем текст после завершения перемещения
         Destroy(textToMove.gameObject);
     }

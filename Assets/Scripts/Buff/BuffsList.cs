@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,23 +7,23 @@ public class BuffsList : MonoBehaviour
     public BuffFactory BuffFactory;
 
     private List<GameObject> buffs;
-    [SerializeField]private DiceRoll _diceRoll;
 
+    public delegate void AllBuffCompleteAction(bool isCritical);
+    public static event AllBuffCompleteAction OnAllBuffComplete;
+
+    private int _countBuffCompleteAnimation;
     void Start()
     {
         DiceRoll.OnRollComplete += StartAnimation;
+        Buff.OnTextMoveComplete += BuffTextMoveComplete;
         
         buffs = new List<GameObject>();
         AddBuffByName("BuffDex");
-        AddBuffByName("BuffInt");
-        AddBuffByName("BuffDex");
+        // AddBuffByName("BuffInt");
+        // AddBuffByName("BuffDex");
         AddBuffByName("BuffStr");
+        AddBuffByName("BuffD4");
         buffs = BuffFactory.CreateBuffGroup(buffs, transform);
-    }
-
-    private void StartAnimation()
-    {
-        StartCoroutine(StartAnimationBuff());
     }
     
     private void AddBuffByName(string name)
@@ -36,18 +34,34 @@ public class BuffsList : MonoBehaviour
             buffs.Add(buff);
         }
     }
-
-    private IEnumerator StartAnimationBuff()
+    
+    private void StartAnimation(int value)
     {
-        foreach (var buff in buffs)
+        _countBuffCompleteAnimation = 0;
+        StartAnimationBuff(0);
+    }
+    
+    private void StartAnimationBuff(int index)
+    {
+        if (index < buffs.Count)
         {
-            yield return new WaitForSeconds(0.5f);
-            buff.GetComponent<Buff>().StartAnimationValue();
+            buffs[index].GetComponent<Buff>().StartAnimationValue();
+        }
+    }
+
+    private void BuffTextMoveComplete(int value)
+    {
+        _countBuffCompleteAnimation++;
+        StartAnimationBuff(_countBuffCompleteAnimation);
+        if (buffs.Count == _countBuffCompleteAnimation)
+        {
+            OnAllBuffComplete.Invoke(false);;
         }
     }
 
     private void OnDestroy()
     {
         DiceRoll.OnRollComplete -= StartAnimation;
+        Buff.OnTextMoveComplete -= BuffTextMoveComplete;
     }
 }
