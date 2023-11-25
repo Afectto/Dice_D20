@@ -25,7 +25,7 @@ public class DiceRoll : MonoBehaviour
     public delegate void AllBuffComplete(int value, bool isCrit);
     public static event AllBuffComplete OnAllBuffComplete;
 
-    void Start()
+    void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
@@ -40,6 +40,7 @@ public class DiceRoll : MonoBehaviour
 
     private void ShowResult(bool isCrit)
     {
+        _isRolling = false;
         OnAllBuffComplete.Invoke(_value, isCrit);
     }
 
@@ -110,7 +111,6 @@ public class DiceRoll : MonoBehaviour
 
     private void SetValueOnEndRoll()
     {
-        _isRolling = false;
         _value = Random.Range(1, 21);
         _text.enabled = true;
         _text.text = _value.ToString();
