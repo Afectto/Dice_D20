@@ -22,7 +22,7 @@ public class DiceRoll : MonoBehaviour
     public delegate void RollEndAction(int value);
     public static event RollEndAction OnRollComplete;
     
-    public delegate void AllBuffComplete(int value, bool isCrit);
+    public delegate void AllBuffComplete(int value, bool isCritical);
     public static event AllBuffComplete OnAllBuffComplete;
 
     void Awake()
@@ -36,12 +36,13 @@ public class DiceRoll : MonoBehaviour
         
         Buff.OnTextMoveComplete += BuffTextMoveComplete;
         BuffsList.OnAllBuffComplete += ShowResult;
+        DifficultyClass.OnNeedStartAnimationDice += StartAnimationDice;
     }
 
-    private void ShowResult(bool isCrit)
+    private void ShowResult(bool isCritical)
     {
         _isRolling = false;
-        OnAllBuffComplete.Invoke(_value, isCrit);
+        OnAllBuffComplete.Invoke(_value, isCritical);
     }
 
     private void BuffTextMoveComplete(int intValue)
@@ -66,6 +67,7 @@ public class DiceRoll : MonoBehaviour
         _maxCountHitWall = Random.Range(5, 9);
         _text.enabled = false;
         _animator.enabled = true;
+        _text.color = Color.white;
     }
     
     private void StartRollingRandomDirection()
@@ -134,9 +136,18 @@ public class DiceRoll : MonoBehaviour
         }
     }
 
+
+    private void StartAnimationDice(bool isSuccess)
+    {
+        _animator.enabled = true;
+        _animator.Play("Dice" +  (isSuccess ? "Success" : "Fail"), -1, 0f);
+        _text.color = isSuccess ? new Color(1f, 0.886f, 0.62f) : new Color(0.604f, 0.149f, 0.149f);
+    }
+
     private void OnDestroy()
     {
         Buff.OnTextMoveComplete -= BuffTextMoveComplete;
         BuffsList.OnAllBuffComplete -= ShowResult;
+        DifficultyClass.OnNeedStartAnimationDice -= StartAnimationDice;
     }
 }

@@ -19,6 +19,9 @@ public class DifficultyClass : MonoBehaviour
     private Animator _animatorValue;
     private bool _isCanRestart = true;
     
+    public delegate void DiceAnimationAction(bool isSuccess);
+    public static event DiceAnimationAction OnNeedStartAnimationDice;
+    
     private void Start()
     {
         _value = Random.Range(5, 31);
@@ -83,7 +86,7 @@ public class DifficultyClass : MonoBehaviour
 
     private void StartSuccessAnimation()
     {
-        
+        StartDiceSuccessAnimation();
     }
     
     private void StartFailAnimation()
@@ -91,6 +94,16 @@ public class DifficultyClass : MonoBehaviour
         _animatorValue.Play("ValueFail", -1, 0f);
     }
 
+    public void StartDiceFailAnimation()
+    {
+        OnNeedStartAnimationDice.Invoke(false);
+    }
+    
+    public void StartDiceSuccessAnimation()
+    {
+        OnNeedStartAnimationDice.Invoke(true);
+    }
+    
     private void OnDestroy()
     {
         DiceRoll.OnAllBuffComplete -= ShowResult;
