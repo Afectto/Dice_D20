@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ public class BuffsList : MonoBehaviour
     {
         DiceRoll.OnRollComplete += StartAnimation;
         Buff.OnTextMoveComplete += BuffTextMoveComplete;
+        _countBuffCompleteAnimation = 0;
         
         buffs = new List<GameObject>();
         AddBuffByName("BuffDex");
@@ -25,7 +27,15 @@ public class BuffsList : MonoBehaviour
         AddBuffByName("BuffD4");
         buffs = BuffFactory.CreateBuffGroup(buffs, transform);
     }
-    
+
+    private void Update()
+    {
+        if (_countBuffCompleteAnimation < buffs.Count && Input.GetKeyDown(KeyCode.Space))
+        {
+            
+        }
+    }
+
     private void AddBuffByName(string name)
     {
         var buff = prefabs.Find(buffInfo => buffInfo.name == name);

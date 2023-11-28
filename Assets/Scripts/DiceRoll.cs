@@ -18,7 +18,7 @@ public class DiceRoll : MonoBehaviour
     private int _value;
 
     private bool _isRolling;
-    
+    private bool _isStopRolling;
     public delegate void RollEndAction(int value);
     public static event RollEndAction OnRollComplete;
     
@@ -68,6 +68,8 @@ public class DiceRoll : MonoBehaviour
         _text.enabled = false;
         _animator.enabled = true;
         _text.color = Color.white;
+        _value = 19;
+        _isStopRolling = false;
     }
     
     private void StartRollingRandomDirection()
@@ -80,7 +82,11 @@ public class DiceRoll : MonoBehaviour
 
     private void StopRolling()
     {
-        StartCoroutine(MoveToPosition(_rctTransform.position, new Vector3(0,1,90f), 1.5f));
+        if (!_isStopRolling)
+        {
+            _isStopRolling = true;
+            StartCoroutine(MoveToPosition(_rctTransform.position, new Vector3(0,1,90f), 1.5f));
+        }
     }
     
     IEnumerator MoveToPosition(Vector3 startPosition, Vector3 targetPosition, float timeToMove)

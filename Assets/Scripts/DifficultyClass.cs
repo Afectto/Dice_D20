@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -48,14 +49,29 @@ public class DifficultyClass : MonoBehaviour
         _value = Random.Range(5, 31);
         Value.text = _value.ToString();
         Value.color = Color.white;
-        
     }
-    
 
     private void ShowResult(int value, bool isCritical)
     {
         _isCanRestart = true;
         
+        bool isSuccess = CreateResult(value, isCritical);
+        
+        Value.color = isSuccess ? new Color(1f, 0.886f, 0.62f) : new Color(0.604f, 0.149f, 0.149f);
+        if (!isSuccess)
+        {
+            StartFailAnimation();
+        }
+        else
+        {
+            StartSuccessAnimation();
+        }
+
+        StartCoroutine(FadeIn());
+    }
+
+    private bool CreateResult(int value, bool isCritical)
+    {
         bool isSuccess = false;
         if (isCritical)
         {
@@ -72,18 +88,24 @@ public class DifficultyClass : MonoBehaviour
         {
             currentResult.transform.SetParent(transform,false);
         }
-
-        Value.color = isSuccess ? new Color(1f, 0.886f, 0.62f) : new Color(0.604f, 0.149f, 0.149f);
-        if (!isSuccess)
-        {
-            StartFailAnimation();
-        }
-        else
-        {
-            StartSuccessAnimation();
-        }
+        return isSuccess;
     }
 
+    private IEnumerator FadeIn()
+    {
+        var textMeshPro = currentResult.GetComponentInChildren<TextMeshProUGUI>();
+        textMeshPro.color = new Color(textMeshPro.color.r, textMeshPro.color.g, textMeshPro.color.b, 0f);
+
+        for (float t = 0f; t < 1f; t += Time.deltaTime / 1.5f)
+        {
+            Color newColor = new Color(textMeshPro.color.r, textMeshPro.color.g, textMeshPro.color.b, Mathf.Lerp(0f, 1f, t));
+            textMeshPro.color = newColor;
+            yield return null;
+        }
+
+        textMeshPro.color = new Color(textMeshPro.color.r, textMeshPro.color.g, textMeshPro.color.b, 1f);
+    }
+    
     private void StartSuccessAnimation()
     {
         StartDiceSuccessAnimation();
