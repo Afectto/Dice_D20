@@ -1516,6 +1516,7 @@ MonoBehaviour:
   - {fileID: 6553490640565876027, guid: c10c2a3c0e5c13f40beb36a6b3e863cc, type: 3}
   - {fileID: 6553490640565876027, guid: 9937a28d62ecd9349a86b02956d32529, type: 3}
   BuffFactory: {fileID: 2075106033}
+  _buffsCanAddList: {fileID: 798256366}
 --- !u!1 &1120553913
 GameObject:
   m_ObjectHideFlags: 0
