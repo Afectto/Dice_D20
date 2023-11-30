@@ -8,6 +8,7 @@ public class BuffsList : MonoBehaviour
     public BuffFactory BuffFactory;
 
     private List<GameObject> buffs;
+    private List<GameObject> CurrentShowBuffs;
 
     public delegate void AllBuffCompleteAction(bool isCritical);
     public static event AllBuffCompleteAction OnAllBuffComplete;
@@ -17,6 +18,7 @@ public class BuffsList : MonoBehaviour
     {
         DiceRoll.OnRollComplete += StartAnimation;
         Buff.OnTextMoveComplete += BuffTextMoveComplete;
+        CurrentShowBuffs = new List<GameObject>();
         _countBuffCompleteAnimation = 0;
         
         buffs = new List<GameObject>();
@@ -24,9 +26,9 @@ public class BuffsList : MonoBehaviour
         AddBuffByName("BuffInt");
         // AddBuffByName("BuffDex");
         // AddBuffByName("BuffStr");
-        AddBuffByName("BuffD4");
+        // AddBuffByName("BuffD4");
         // AddBuffByName("Advantage");
-        buffs = BuffFactory.CreateBuffGroup(buffs, transform);
+        // CurrentShowBuffs = BuffFactory.CreateBuffGroup(buffs, transform);
     }
 
     private void Update()
@@ -37,13 +39,35 @@ public class BuffsList : MonoBehaviour
         }
     }
 
-    private void AddBuffByName(string name)
+    public void AddBuffByName(string name)
     {
-        var buff = prefabs.Find(buffInfo => buffInfo.name == name);
+        var replace = name.Replace("(Clone)", "");
+        ClearShowBuff();
+        
+        var buff = prefabs.Find(buffInfo => buffInfo.name == replace);
         if (buff is not null)
         {
             buffs.Add(buff);
         }
+        CurrentShowBuffs = BuffFactory.CreateBuffGroup(buffs, transform);
+    }
+
+    private void ClearShowBuff()
+    {
+        foreach (var myBuff in CurrentShowBuffs)
+        {
+            Destroy(myBuff.gameObject);
+        }
+    }
+    
+    public void RemoveBuff(GameObject buff)
+    {
+        ClearShowBuff();
+        var replace = buff.name.Replace("(Clone)", "");
+        buffs.RemoveAll(obj => obj.name == replace);
+        var obj = CurrentShowBuffs.Find(buffs => buff == buffs);
+        Destroy(obj.gameObject);
+        CurrentShowBuffs = BuffFactory.CreateBuffGroup(buffs, transform);
     }
     
     private void StartAnimation(int value)
@@ -56,7 +80,7 @@ public class BuffsList : MonoBehaviour
     {
         if (index < buffs.Count)
         {
-            buffs[index].GetComponent<Buff>().StartAnimationValue();
+            CurrentShowBuffs[index].GetComponent<Buff>().StartAnimationValue();
         }
     }
 

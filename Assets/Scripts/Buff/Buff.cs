@@ -59,6 +59,21 @@ public class Buff : MonoBehaviour
         Destroy(textToMove.gameObject);
     }
 
+    public void OnClick()
+    {
+        if (transform.parent.name == "CanAddBuffsList")
+        {
+            var canAddBuffsList = transform.parent.GetComponent<CanAddBuffsList>();
+            canAddBuffsList.AddToBuffList(name);
+            canAddBuffsList.RemoveToBuffList(gameObject);
+        }
+        else
+        {
+            var buffsList = transform.parent.GetComponent<BuffsList>();
+            buffsList.RemoveBuff(gameObject);
+        }
+    }
+
     public static void InvokeTextMoveComplete(int value)
     {
         OnTextMoveComplete?.Invoke(value);

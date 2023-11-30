@@ -28,5 +28,7 @@ public class BuffFactory : MonoBehaviour
         obj.transform.SetParent(parentTransform, false); 
         return obj;
     }
+
+
     
 }
