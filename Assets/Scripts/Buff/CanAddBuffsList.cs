@@ -13,21 +13,25 @@ public class CanAddBuffsList : MonoBehaviour
     
     void Start()
     {
+        CurrentShowBuffs = new List<GameObject>();
         buffs = new List<GameObject>();
         AddBuffByName("BuffDex");
         AddBuffByName("BuffInt");
         AddBuffByName("BuffStr");
         AddBuffByName("BuffD4");
-        CurrentShowBuffs = BuffFactory.CreateBuffGroup(buffs, transform);
     }
     
-    private void AddBuffByName(string name)
+    public void AddBuffByName(string name)
     {
-        var buff = prefabs.Find(buffInfo => buffInfo.name == name);
+        var replace = name.Replace("(Clone)", "");
+        ClearShowBuff();
+        
+        var buff = prefabs.Find(buffInfo => buffInfo.name == replace);
         if (buff is not null)
         {
             buffs.Add(buff);
         }
+        CurrentShowBuffs = BuffFactory.CreateBuffGroup(buffs, transform);
     }
     
     private void ClearShowBuff()
@@ -40,11 +44,11 @@ public class CanAddBuffsList : MonoBehaviour
     
     public void RemoveToBuffList(GameObject buff)
     {
-        var replace = buff.name.Replace("(Clone)", "");
-        var obj = buffs.Find(buffs => replace == buffs.name);
-        buffs.RemoveAll(obj => obj.name == replace);
-        Destroy(obj.gameObject);
         ClearShowBuff();
+        var replace = buff.name.Replace("(Clone)", "");
+        buffs.RemoveAll(obj => obj.name == replace);
+        var obj = CurrentShowBuffs.Find(myBuff => buff.name == myBuff.name);
+        Destroy(obj.gameObject);
         CurrentShowBuffs = BuffFactory.CreateBuffGroup(buffs, transform);
     }
     

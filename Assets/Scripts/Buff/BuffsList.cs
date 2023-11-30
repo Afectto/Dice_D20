@@ -14,6 +14,8 @@ public class BuffsList : MonoBehaviour
     public static event AllBuffCompleteAction OnAllBuffComplete;
 
     private int _countBuffCompleteAnimation;
+    [SerializeField]private CanAddBuffsList _buffsCanAddList;
+
     void Start()
     {
         DiceRoll.OnRollComplete += StartAnimation;
@@ -92,6 +94,11 @@ public class BuffsList : MonoBehaviour
         {
             OnAllBuffComplete.Invoke(false);;
         }
+    }
+    
+    public void AddToBuffList(string name)
+    {
+        _buffsCanAddList.AddBuffByName(name);
     }
 
     private void OnDestroy()
