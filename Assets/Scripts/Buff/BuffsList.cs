@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BuffsList : MonoBehaviour
-{
+{    
     public List<GameObject> prefabs;
     public BuffFactory BuffFactory;
 
@@ -20,11 +20,12 @@ public class BuffsList : MonoBehaviour
         _countBuffCompleteAnimation = 0;
         
         buffs = new List<GameObject>();
-        AddBuffByName("BuffDex");
-        // AddBuffByName("BuffInt");
         // AddBuffByName("BuffDex");
-        AddBuffByName("BuffStr");
+        AddBuffByName("BuffInt");
+        // AddBuffByName("BuffDex");
+        // AddBuffByName("BuffStr");
         AddBuffByName("BuffD4");
+        // AddBuffByName("Advantage");
         buffs = BuffFactory.CreateBuffGroup(buffs, transform);
     }
 

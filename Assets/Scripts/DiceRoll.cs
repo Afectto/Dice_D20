@@ -9,16 +9,16 @@ public class DiceRoll : MonoBehaviour
     public float moveSpeed = 5f;
     public Sprite resultSprites;
     
-    private Rigidbody2D _rb; 
-    private Animator _animator;
-    private RectTransform _rctTransform;
-    private TextMeshProUGUI _text;
-    private int _countHitWall;
-    private int _maxCountHitWall;
-    private int _value;
+    protected Rigidbody2D _rb; 
+    protected Animator _animator;
+    protected RectTransform _rctTransform;
+    protected TextMeshProUGUI _text;
+    protected int _countHitWall;
+    protected int _maxCountHitWall;
+    protected int _value;
 
-    private bool _isRolling;
-    private bool _isStopRolling;
+    protected bool _isRolling;
+    protected bool _isStopRolling;
     public delegate void RollEndAction(int value);
     public static event RollEndAction OnRollComplete;
     
@@ -27,19 +27,28 @@ public class DiceRoll : MonoBehaviour
 
     void Awake()
     {
+        InitializeProperty();
+        InitializeEvent();
+    }
+
+    private void InitializeProperty()
+    {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _countHitWall = 0;
         _rctTransform = GetComponent<RectTransform>();
         _text = GetComponentInChildren<TextMeshProUGUI>();
         _isRolling = false;
-        
+    }
+
+    protected virtual void InitializeEvent()
+    {
         Buff.OnTextMoveComplete += BuffTextMoveComplete;
         BuffsList.OnAllBuffComplete += ShowResult;
         DifficultyClass.OnNeedStartAnimationDice += StartAnimationDice;
     }
 
-    private void ShowResult(bool isCritical)
+    protected void ShowResult(bool isCritical)
     {
         _isRolling = false;
         OnAllBuffComplete.Invoke(_value, isCritical);
@@ -60,7 +69,7 @@ public class DiceRoll : MonoBehaviour
         }
     }
 
-    private  void PrepareToStartRoll()
+    private void PrepareToStartRoll()
     {
         _isRolling = true;
         _countHitWall = 0;
@@ -68,7 +77,7 @@ public class DiceRoll : MonoBehaviour
         _text.enabled = false;
         _animator.enabled = true;
         _text.color = Color.white;
-        _value = 19;
+        _value = -1;
         _isStopRolling = false;
     }
     
@@ -80,7 +89,7 @@ public class DiceRoll : MonoBehaviour
         _animator.Play("Rolling");
     }
 
-    private void StopRolling()
+    protected virtual void StopRolling()
     {
         if (!_isStopRolling)
         {
@@ -89,7 +98,7 @@ public class DiceRoll : MonoBehaviour
         }
     }
     
-    IEnumerator MoveToPosition(Vector3 startPosition, Vector3 targetPosition, float timeToMove)
+    protected virtual IEnumerator MoveToPosition(Vector3 startPosition, Vector3 targetPosition, float timeToMove)
     {
         _rb.velocity = Vector2.zero;
         _rb.rotation = 0;
@@ -109,22 +118,25 @@ public class DiceRoll : MonoBehaviour
         GetComponentInChildren<Image>().sprite = resultSprites;
         if (_value != 20 && _value != 1)
         {
-            OnRollComplete.Invoke(_value);
+            InvokeRollComplete(_value);
         }
         else
         {
             ShowResult(true);
         }
     }
-
-    private void SetValueOnEndRoll()
+    public static void InvokeRollComplete(int value)
+    {
+        OnRollComplete?.Invoke(value);
+    }
+    protected void SetValueOnEndRoll()
     {
         _value = Random.Range(1, 21);
         _text.enabled = true;
         _text.text = _value.ToString();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Wall"))
         {
@@ -150,7 +162,7 @@ public class DiceRoll : MonoBehaviour
         _text.color = isSuccess ? new Color(1f, 0.886f, 0.62f) : new Color(0.604f, 0.149f, 0.149f);
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         Buff.OnTextMoveComplete -= BuffTextMoveComplete;
         BuffsList.OnAllBuffComplete -= ShowResult;

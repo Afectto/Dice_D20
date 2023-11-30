@@ -52,11 +52,15 @@ public class Buff : MonoBehaviour
         {
             intValue = parsedValue;
             // Увеличиваем значение выпавшее на кубике
-            OnTextMoveComplete?.Invoke(intValue);
+            InvokeTextMoveComplete(intValue);
         }
         
         // Уничтожаем текст после завершения перемещения
         Destroy(textToMove.gameObject);
     }
-    
+
+    public static void InvokeTextMoveComplete(int value)
+    {
+        OnTextMoveComplete?.Invoke(value);
+    }
 }
