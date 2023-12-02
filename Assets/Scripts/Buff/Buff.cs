@@ -70,7 +70,7 @@ public class Buff : MonoBehaviour
         else
         {
             var buffsList = transform.parent.GetComponent<BuffsList>();
-            buffsList.AddToBuffList(name);
+            buffsList.AddBuff(name);
             buffsList.RemoveBuff(gameObject);
         }
     }

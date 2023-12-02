@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,9 +14,10 @@ public class BuffsList : MonoBehaviour
 
     private int _countBuffCompleteAnimation;
     [SerializeField]private CanAddBuffsList _buffsCanAddList;
-
+    [SerializeField] private DiceChanger _diceChanger;
     void Start()
     {
+        _diceChanger = FindObjectOfType<DiceChanger>();
         DiceRoll.OnRollComplete += StartAnimation;
         Buff.OnTextMoveComplete += BuffTextMoveComplete;
         CurrentShowBuffs = new List<GameObject>();
@@ -45,6 +45,7 @@ public class BuffsList : MonoBehaviour
     {
         var replace = name.Replace("(Clone)", "");
         ClearShowBuff();
+        if(replace == "Advantage") _diceChanger.SetDiceAdvantageActive();
         
         var buff = prefabs.Find(buffInfo => buffInfo.name == replace);
         if (buff is not null)
@@ -66,6 +67,8 @@ public class BuffsList : MonoBehaviour
     {
         ClearShowBuff();
         var replace = buff.name.Replace("(Clone)", "");
+        if(replace == "Advantage") _diceChanger.SetDiceActive();
+        _diceChanger.SetDiceActive();
         buffs.RemoveAll(obj => obj.name == replace);
         var obj = CurrentShowBuffs.Find(buffs => buff == buffs);
         Destroy(obj.gameObject);
@@ -96,7 +99,7 @@ public class BuffsList : MonoBehaviour
         }
     }
     
-    public void AddToBuffList(string name)
+    public void AddBuff(string name)
     {
         _buffsCanAddList.AddBuffByName(name);
     }

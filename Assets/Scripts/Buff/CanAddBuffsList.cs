@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +18,7 @@ public class CanAddBuffsList : MonoBehaviour
         AddBuffByName("BuffInt");
         AddBuffByName("BuffStr");
         AddBuffByName("BuffD4");
+        AddBuffByName("Advantage");
     }
     
     public void AddBuffByName(string name)

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -157,9 +156,12 @@ public class DiceRoll : MonoBehaviour
 
     private void StartAnimationDice(bool isSuccess)
     {
-        _animator.enabled = true;
-        _animator.Play("Dice" +  (isSuccess ? "Success" : "Fail"), -1, 0f);
-        _text.color = isSuccess ? new Color(1f, 0.886f, 0.62f) : new Color(0.604f, 0.149f, 0.149f);
+        if (isActiveAndEnabled)
+        {
+            _animator.enabled = true;
+            _animator.Play("Dice" +  (isSuccess ? "Success" : "Fail"), -1, 0f);
+            _text.color = isSuccess ? new Color(1f, 0.886f, 0.62f) : new Color(0.604f, 0.149f, 0.149f);
+        }
     }
 
     protected virtual void OnDestroy()

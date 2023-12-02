@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +28,8 @@ public class DiceRollAdvantage : DiceRoll
     {
         if (_value == 20 || _value == 1)
         {
+            ShowResult(true);
+            StartCoroutine(MoveToCenter(_rctTransform.position, new Vector3(0, 1, 90f), 1f));
             return;
         }
         if(_value == -1)
@@ -46,7 +47,7 @@ public class DiceRollAdvantage : DiceRoll
             }
             else
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
     }

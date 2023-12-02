@@ -1,34 +1,34 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 public class BuffAdvantage : Buff
 {
-    private DiceRoll Dice;
-    private GameObject Dice_1;
-    private GameObject Dice_2;
+    private DiceChanger _diceChanger;
 
     private void Start()
     {
-        StartAdvantageAnimation();
+        _diceChanger = FindObjectOfType<DiceChanger>();
+        if (transform.parent.name == "BuffsList")
+        {
+            _diceChanger.SetDiceAdvantageActive();
+            StartAdvantageAnimation();
+        }
     }
 
     public void StartAdvantageAnimation()
     {
-        Dice = FindObjectOfType<DiceRoll>();
-        GameObject prefabDiceAdvantage = Resources.Load<GameObject>("Prefabs/DiceAdvantage");
-        
-        var parent = Dice.transform.parent;
-        Dice_1= Instantiate(prefabDiceAdvantage, parent);
-        Dice_2= Instantiate(prefabDiceAdvantage, parent);
+        var diсeAdvantage = _diceChanger.GetActiveDiceAdvantage();
 
-        var dice2Advantage = Dice_2.GetComponent<DiceRollAdvantage>();
+        var dice1Advantage = diсeAdvantage[0];
+        var dice2Advantage = diсeAdvantage[1];
+        
+        dice1Advantage.transform.position = new Vector3(0, 0, 90f);
+        dice2Advantage.transform.position = new Vector3(0, 0, 90f);
+        
         dice2Advantage.SetIsSecond();
         
-        var position = Dice.transform.position;
-        StartCoroutine(MoveDice(Dice_1.gameObject, position + new Vector3(10, 0, 0), 0.5f));
-        StartCoroutine(MoveDice(Dice_2.gameObject, position + new Vector3(-10, 0, 0), 0.5f));
-        Destroy(Dice.gameObject);
+        StartCoroutine(MoveDice(dice1Advantage.gameObject, new Vector3(10, 0, 90f), 0.5f));
+        StartCoroutine(MoveDice(dice2Advantage.gameObject, new Vector3(-10, 0, 90f), 0.5f));
     }
     
     private IEnumerator MoveDice(GameObject dice ,Vector3 targetPosition, float timeToMove)
