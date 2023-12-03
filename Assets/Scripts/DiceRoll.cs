@@ -49,18 +49,21 @@ public class DiceRoll : MonoBehaviour
 
     protected void ShowResult(bool isCritical)
     {
+        if(!isActiveAndEnabled) return;
         _isRolling = false;
         OnAllBuffComplete.Invoke(_value, isCritical);
     }
 
     private void BuffTextMoveComplete(int intValue)
     {
+        if(!isActiveAndEnabled) return;
         _value += intValue;
         _text.text = _value.ToString();
     }
 
     void Update()
     {
+        if(!isActiveAndEnabled) return;
         GetComponent<RectTransform>().rotation = Quaternion.identity;
         if (Input.GetKeyDown(KeyCode.Space) && !_isRolling)
         {
@@ -82,6 +85,7 @@ public class DiceRoll : MonoBehaviour
     
     private void StartRollingRandomDirection()
     {
+        if(!isActiveAndEnabled) return;
         PrepareToStartRoll();
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
         _rb.velocity = randomDirection * moveSpeed;
@@ -90,6 +94,7 @@ public class DiceRoll : MonoBehaviour
 
     protected virtual void StopRolling()
     {
+        if(!isActiveAndEnabled) return;
         if (!_isStopRolling)
         {
             _isStopRolling = true;
@@ -130,6 +135,7 @@ public class DiceRoll : MonoBehaviour
     }
     protected void SetValueOnEndRoll()
     {
+        if(!isActiveAndEnabled) return;
         _value = Random.Range(1, 21);
         _text.enabled = true;
         _text.text = _value.ToString();
@@ -156,6 +162,7 @@ public class DiceRoll : MonoBehaviour
 
     private void StartAnimationDice(bool isSuccess)
     {
+        if(!isActiveAndEnabled) return;
         if (isActiveAndEnabled)
         {
             _animator.enabled = true;

@@ -29,8 +29,7 @@ public class BuffsList : MonoBehaviour
         // AddBuffByName("BuffDex");
         // AddBuffByName("BuffStr");
         // AddBuffByName("BuffD4");
-        // AddBuffByName("Advantage");
-        // CurrentShowBuffs = BuffFactory.CreateBuffGroup(buffs, transform);
+        AddBuffByName("Advantage");
     }
 
     private void Update()

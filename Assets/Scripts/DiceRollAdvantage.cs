@@ -10,6 +10,8 @@ public class DiceRollAdvantage : DiceRoll
     public delegate void IsStopRoll(int value, bool isSecond);
     public static event IsStopRoll OnIsStopRoll;
     
+    public delegate void IsSetActive(bool isSecond, bool isActive);
+    public static event IsSetActive OnIsSetActive;
     private bool _isSecond = false;
 
     public void SetIsSecond()
@@ -22,16 +24,20 @@ public class DiceRollAdvantage : DiceRoll
         base.InitializeEvent();
         OnIsNeedStopRoll += StopRolling;
         OnIsStopRoll += OnStopRoll;
+        OnIsSetActive += OnSetActive;
+    }
+
+    private void OnSetActive(bool isSecond, bool isActive)
+    {
+        if(isSecond != _isSecond) return;
+        
+        gameObject.SetActive(isActive);
     }
 
     private void OnStopRoll(int value, bool isSecond)
     {
-        if (_value == 20 || _value == 1)
-        {
-            ShowResult(true);
-            StartCoroutine(MoveToCenter(_rctTransform.position, new Vector3(0, 1, 90f), 1f));
-            return;
-        }
+        if(!isActiveAndEnabled) return;
+
         if(_value == -1)
         {
             StartCoroutine(CheckSecondTime(value,isSecond));
@@ -39,17 +45,37 @@ public class DiceRollAdvantage : DiceRoll
         }
         if (_isSecond != isSecond)
         {
+            if (_value == 20 || _value == 1)
+            {
+                OnIsSetActive.Invoke(isSecond, false);
+                ShowResult(true);
+                StartCoroutine(MoveToCenter(_rctTransform.position, new Vector3(0, 1, 90f), 1f));
+                return;
+            }
+
+            if (_value == value)
+            {
+                OnIsSetActive.Invoke(isSecond, false);
+            }
+            
             if (_value >= value)
             {
                 _animator.enabled = true;
                 _animator.Play("DiceSuccess", -1, 0f);
                 StartCoroutine(MoveToCenter(_rctTransform.position, new Vector3(0, 1, 90f), 1f));
+                InvokeRollComplete(_value);
             }
             else
             {
-                gameObject.SetActive(false);
+                StartCoroutine(RemoveDiceAfterSecond(0.2f));
             }
         }
+    }
+
+    private IEnumerator RemoveDiceAfterSecond(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        gameObject.SetActive(false);
     }
 
     private IEnumerator CheckSecondTime(int value, bool isSecond)
@@ -79,6 +105,7 @@ public class DiceRollAdvantage : DiceRoll
 
     protected override void StopRolling()
     {
+        if(!isActiveAndEnabled) return;
         if (!_isStopRolling)
         {
             _isStopRolling = true;
@@ -101,7 +128,6 @@ public class DiceRollAdvantage : DiceRoll
         _animator.enabled = false;
 
         _rctTransform.position = targetPosition;
-        InvokeRollComplete(_value);
     }
 
     protected override IEnumerator MoveToPosition(Vector3 startPosition, Vector3 targetPosition, float timeToMove)
