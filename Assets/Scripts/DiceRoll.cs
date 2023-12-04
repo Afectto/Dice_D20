@@ -5,19 +5,20 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 public class DiceRoll : MonoBehaviour
 {
+    private TextMeshProUGUI _text;
+    private bool _isRolling;
+
+    protected Rigidbody2D Rb; 
+    protected Animator Animator;
+    protected RectTransform RctTransform;
+    protected int CountHitWall;
+    protected int MAXCountHitWall;
+    protected int Value;
+    protected bool IsStopRolling;
+
     public float moveSpeed = 5f;
     public Sprite resultSprites;
-    
-    protected Rigidbody2D _rb; 
-    protected Animator _animator;
-    protected RectTransform _rctTransform;
-    protected TextMeshProUGUI _text;
-    protected int _countHitWall;
-    protected int _maxCountHitWall;
-    protected int _value;
 
-    protected bool _isRolling;
-    protected bool _isStopRolling;
     public delegate void RollEndAction(int value);
     public static event RollEndAction OnRollComplete;
     
@@ -32,10 +33,10 @@ public class DiceRoll : MonoBehaviour
 
     private void InitializeProperty()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
-        _countHitWall = 0;
-        _rctTransform = GetComponent<RectTransform>();
+        Rb = GetComponent<Rigidbody2D>();
+        Animator = GetComponent<Animator>();
+        CountHitWall = 0;
+        RctTransform = GetComponent<RectTransform>();
         _text = GetComponentInChildren<TextMeshProUGUI>();
         _isRolling = false;
     }
@@ -49,21 +50,21 @@ public class DiceRoll : MonoBehaviour
 
     protected void ShowResult(bool isCritical)
     {
-        if(!isActiveAndEnabled) return;
         _isRolling = false;
-        OnAllBuffComplete.Invoke(_value, isCritical);
+        if(!isActiveAndEnabled) return;
+        var k = this;
+        OnAllBuffComplete.Invoke(Value, isCritical);
     }
 
     private void BuffTextMoveComplete(int intValue)
     {
         if(!isActiveAndEnabled) return;
-        _value += intValue;
-        _text.text = _value.ToString();
+        Value += intValue;
+        _text.text = Value.ToString();
     }
 
     void Update()
     {
-        if(!isActiveAndEnabled) return;
         GetComponent<RectTransform>().rotation = Quaternion.identity;
         if (Input.GetKeyDown(KeyCode.Space) && !_isRolling)
         {
@@ -71,86 +72,89 @@ public class DiceRoll : MonoBehaviour
         }
     }
 
-    private void PrepareToStartRoll()
+    protected virtual void PrepareToStartRoll()
     {
         _isRolling = true;
-        _countHitWall = 0;
-        _maxCountHitWall = Random.Range(5, 9);
+        CountHitWall = 0;
+        MAXCountHitWall = Random.Range(5, 9);
         _text.enabled = false;
-        _animator.enabled = true;
+        Animator.enabled = true;
         _text.color = Color.white;
-        _value = -1;
-        _isStopRolling = false;
+        Value = -1;
+        IsStopRolling = false;
+        RctTransform.localScale = Vector3.one;
     }
     
     private void StartRollingRandomDirection()
     {
-        if(!isActiveAndEnabled) return;
         PrepareToStartRoll();
+        if(!isActiveAndEnabled) return;
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
-        _rb.velocity = randomDirection * moveSpeed;
-        _animator.Play("Rolling");
+        Rb.velocity = randomDirection * moveSpeed;
+        Animator.Play("Rolling");
     }
 
     protected virtual void StopRolling()
     {
         if(!isActiveAndEnabled) return;
-        if (!_isStopRolling)
+        if (!IsStopRolling)
         {
-            _isStopRolling = true;
-            StartCoroutine(MoveToPosition(_rctTransform.position, new Vector3(0,1,90f), 1.5f));
+            IsStopRolling = true;
+            StartCoroutine(MoveToPosition(RctTransform.position, new Vector3(0,1,90f), 1.5f));
         }
     }
     
     protected virtual IEnumerator MoveToPosition(Vector3 startPosition, Vector3 targetPosition, float timeToMove)
     {
-        _rb.velocity = Vector2.zero;
-        _rb.rotation = 0;
+        Rb.velocity = Vector2.zero;
+        Rb.rotation = 0;
         float t = 0f;
         while (t < 1f)
         {
             t += Time.deltaTime / timeToMove;
-            _rctTransform.position = Vector3.Lerp(startPosition, targetPosition, t);
+            RctTransform.position = Vector3.Lerp(startPosition, targetPosition, t);
             yield return null;
         }
 
-        _animator.enabled = false;
+        Animator.enabled = false;
         
-        _rctTransform.position = targetPosition;
+        RctTransform.position = targetPosition;
 
         SetValueOnEndRoll();
         GetComponentInChildren<Image>().sprite = resultSprites;
-        if (_value != 20 && _value != 1)
+        if (Value != 20 && Value != 1)
         {
-            InvokeRollComplete(_value);
+            InvokeRollComplete(Value);
         }
         else
         {
             ShowResult(true);
         }
     }
+    
     public static void InvokeRollComplete(int value)
     {
         OnRollComplete?.Invoke(value);
     }
+    
     protected void SetValueOnEndRoll()
     {
         if(!isActiveAndEnabled) return;
-        _value = Random.Range(1, 21);
+        Value = Random.Range(1, 21);
         _text.enabled = true;
-        _text.text = _value.ToString();
+        _text.text = Value.ToString();
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Wall"))
         {
-            _countHitWall++;
-            if (_countHitWall < _maxCountHitWall)
+            CountHitWall++;
+            if (CountHitWall < MAXCountHitWall)
             {
                 Vector2 bounceDirection = (transform.position - collision.transform.position).normalized;
             
-                _rb.velocity = bounceDirection * moveSpeed;
+                Rb.velocity = bounceDirection * moveSpeed;
             }
             else
             {
@@ -163,12 +167,10 @@ public class DiceRoll : MonoBehaviour
     private void StartAnimationDice(bool isSuccess)
     {
         if(!isActiveAndEnabled) return;
-        if (isActiveAndEnabled)
-        {
-            _animator.enabled = true;
-            _animator.Play("Dice" +  (isSuccess ? "Success" : "Fail"), -1, 0f);
-            _text.color = isSuccess ? new Color(1f, 0.886f, 0.62f) : new Color(0.604f, 0.149f, 0.149f);
-        }
+        
+        Animator.enabled = true;
+        Animator.Play("Dice" +  (isSuccess ? "Success" : "Fail"), -1, 0f);
+        _text.color = isSuccess ? new Color(1f, 0.886f, 0.62f) : new Color(0.604f, 0.149f, 0.149f);
     }
 
     protected virtual void OnDestroy()

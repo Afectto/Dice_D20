@@ -19,6 +19,7 @@ public class DiceChanger : MonoBehaviour
         if (!dice.isActiveAndEnabled)
         {
             dice.gameObject.SetActive(true);
+            dice.GetComponent<RectTransform>().localScale = Vector3.one;
             diceAdvantage1.gameObject.SetActive(false);
             diceAdvantage2.gameObject.SetActive(false);
         }
@@ -31,6 +32,9 @@ public class DiceChanger : MonoBehaviour
             dice.gameObject.SetActive(false);
             diceAdvantage1.gameObject.SetActive(true);
             diceAdvantage2.gameObject.SetActive(true);
+            
+            diceAdvantage1.GetComponent<RectTransform>().localScale = Vector3.one;
+            diceAdvantage2.GetComponent<RectTransform>().localScale = Vector3.one;
         }
     }
 

@@ -45,6 +45,12 @@ public class BuffAdvantage : Buff
 
     public override void StartAnimationValue()
     {
+        StartCoroutine(WaitEndLastAnimation());
+    }
+
+    private IEnumerator WaitEndLastAnimation()
+    {
+        yield return new WaitForSeconds(0.1f);
         InvokeTextMoveComplete(0);
     }
 }

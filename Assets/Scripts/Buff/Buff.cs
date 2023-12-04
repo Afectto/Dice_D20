@@ -75,7 +75,7 @@ public class Buff : MonoBehaviour
         }
     }
 
-    public static void InvokeTextMoveComplete(int value)
+    protected static void InvokeTextMoveComplete(int value)
     {
         OnTextMoveComplete?.Invoke(value);
     }

@@ -27,6 +27,14 @@ public class DiceRollAdvantage : DiceRoll
         OnIsSetActive += OnSetActive;
     }
 
+    protected override void PrepareToStartRoll()
+    {
+        OnIsSetActive?.Invoke(true, true);
+        OnIsSetActive?.Invoke(false, true);
+        base.PrepareToStartRoll();
+        RctTransform.position = new Vector3(_isSecond ? -10 : 10, 1, 90f);
+    }
+    
     private void OnSetActive(bool isSecond, bool isActive)
     {
         if(isSecond != _isSecond) return;
@@ -38,32 +46,32 @@ public class DiceRollAdvantage : DiceRoll
     {
         if(!isActiveAndEnabled) return;
 
-        if(_value == -1)
+        if(Value == -1)
         {
             StartCoroutine(CheckSecondTime(value,isSecond));
             return;
         }
         if (_isSecond != isSecond)
         {
-            if (_value == 20 || _value == 1)
+            if (Value == 20 || Value == 1)
             {
-                OnIsSetActive.Invoke(isSecond, false);
+                OnIsSetActive?.Invoke(isSecond, false);
                 ShowResult(true);
-                StartCoroutine(MoveToCenter(_rctTransform.position, new Vector3(0, 1, 90f), 1f));
+                StartCoroutine(MoveToCenter(RctTransform.position, new Vector3(0, 1, 90f), 1f));
                 return;
             }
 
-            if (_value == value)
+            if (Value == value)
             {
-                OnIsSetActive.Invoke(isSecond, false);
+                OnIsSetActive?.Invoke(isSecond, false);
             }
             
-            if (_value >= value)
+            if (Value >= value)
             {
-                _animator.enabled = true;
-                _animator.Play("DiceSuccess", -1, 0f);
-                StartCoroutine(MoveToCenter(_rctTransform.position, new Vector3(0, 1, 90f), 1f));
-                InvokeRollComplete(_value);
+                Animator.enabled = true;
+                Animator.Play("DiceSuccess", -1, 0f);
+                StartCoroutine(MoveToCenter(RctTransform.position, new Vector3(0, 1, 90f), 1f));
+                InvokeRollComplete(Value);
             }
             else
             {
@@ -82,23 +90,23 @@ public class DiceRollAdvantage : DiceRoll
     {
         yield return new WaitForSeconds(0.1f);
         
-        OnIsStopRoll.Invoke(value, isSecond);
+        OnIsStopRoll?.Invoke(value, isSecond);
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Wall"))
         {
-            _countHitWall++;
-            if (_countHitWall < _maxCountHitWall)
+            CountHitWall++;
+            if (CountHitWall < MAXCountHitWall)
             {
                 Vector2 bounceDirection = (transform.position - collision.transform.position).normalized;
             
-                _rb.velocity = bounceDirection * moveSpeed;
+                Rb.velocity = bounceDirection * moveSpeed;
             }
             else
             {
-                OnIsNeedStopRoll.Invoke();
+                OnIsNeedStopRoll?.Invoke();
             }
         }
     }
@@ -106,50 +114,50 @@ public class DiceRollAdvantage : DiceRoll
     protected override void StopRolling()
     {
         if(!isActiveAndEnabled) return;
-        if (!_isStopRolling)
+        if (!IsStopRolling)
         {
-            _isStopRolling = true;
-            StartCoroutine(MoveToPosition(_rctTransform.position, new Vector3(_isSecond ? -10 : 10, 1, 90f), 1.5f));
+            IsStopRolling = true;
+            StartCoroutine(MoveToPosition(RctTransform.position, new Vector3(_isSecond ? -10 : 10, 1, 90f), 1.5f));
         }
     }
 
     private IEnumerator MoveToCenter(Vector3 startPosition, Vector3 targetPosition, float timeToMove)
     {
-        _rb.velocity = Vector2.zero;
-        _rb.rotation = 0;
+        Rb.velocity = Vector2.zero;
+        Rb.rotation = 0;
         float t = 0f;
         while (t < 1f)
         {
             t += Time.deltaTime / timeToMove;
-            _rctTransform.position = Vector3.Lerp(startPosition, targetPosition, t);
+            RctTransform.position = Vector3.Lerp(startPosition, targetPosition, t);
             yield return null;
         }
 
-        _animator.enabled = false;
+        Animator.enabled = false;
 
-        _rctTransform.position = targetPosition;
+        RctTransform.position = targetPosition;
     }
 
     protected override IEnumerator MoveToPosition(Vector3 startPosition, Vector3 targetPosition, float timeToMove)
     {
-        _rb.velocity = Vector2.zero;
-        _rb.rotation = 0;
+        Rb.velocity = Vector2.zero;
+        Rb.rotation = 0;
         float t = 0f;
         while (t < 1f)
         {
             t += Time.deltaTime / timeToMove;
-            _rctTransform.position = Vector3.Lerp(startPosition, targetPosition, t);
+            RctTransform.position = Vector3.Lerp(startPosition, targetPosition, t);
             yield return null;
         }
 
-        _animator.enabled = false;
+        Animator.enabled = false;
         
-        _rctTransform.position = targetPosition;
+        RctTransform.position = targetPosition;
 
         SetValueOnEndRoll();
         GetComponentInChildren<Image>().sprite = resultSprites;
 
-        OnIsStopRoll.Invoke(_value, _isSecond);
+        OnIsStopRoll?.Invoke(Value, _isSecond);
     }
 
     protected override void OnDestroy()
