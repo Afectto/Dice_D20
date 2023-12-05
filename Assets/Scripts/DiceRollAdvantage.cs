@@ -27,12 +27,15 @@ public class DiceRollAdvantage : DiceRoll
         OnIsSetActive += OnSetActive;
     }
 
-    protected override void PrepareToStartRoll()
+    public void RefreshDice()
     {
+        if(!isActiveAndEnabled) return;
+        IsRolling = false;
         OnIsSetActive?.Invoke(true, true);
-        OnIsSetActive?.Invoke(false, true);
-        base.PrepareToStartRoll();
+        OnIsSetActive?.Invoke(false, true);;
         RctTransform.position = new Vector3(_isSecond ? -10 : 10, 1, 90f);
+        Text.color = Color.white;
+        Text.text = "20";
     }
     
     private void OnSetActive(bool isSecond, bool isActive)
@@ -51,6 +54,7 @@ public class DiceRollAdvantage : DiceRoll
             StartCoroutine(CheckSecondTime(value,isSecond));
             return;
         }
+        
         if (_isSecond != isSecond)
         {
             if (Value == 20 || Value == 1)
@@ -61,28 +65,37 @@ public class DiceRollAdvantage : DiceRoll
                 return;
             }
 
-            if (Value == value)
-            {
-                OnIsSetActive?.Invoke(isSecond, false);
-            }
-            
-            if (Value >= value)
-            {
-                Animator.enabled = true;
-                Animator.Play("DiceSuccess", -1, 0f);
-                StartCoroutine(MoveToCenter(RctTransform.position, new Vector3(0, 1, 90f), 1f));
-                InvokeRollComplete(Value);
-            }
-            else
-            {
-                StartCoroutine(RemoveDiceAfterSecond(0.2f));
-            }
+            StartCoroutine(WaitCheckCritical(value, isSecond));
         }
     }
 
+    private IEnumerator WaitCheckCritical(int value, bool isSecond)
+    {
+        yield return new WaitForSeconds(0.1f);
+        if(!isActiveAndEnabled) yield break;
+        
+        if (Value == value)
+        {
+            OnIsSetActive?.Invoke(isSecond, false);
+        }
+            
+        if (Value >= value)
+        {
+            Animator.enabled = true;
+            Animator.Play("DiceSuccess", -1, 0f);
+            StartCoroutine(MoveToCenter(RctTransform.position, new Vector3(0, 1, 90f), 1f));
+            InvokeRollComplete(Value);
+        }
+        else
+        {
+            StartCoroutine(RemoveDiceAfterSecond(0.2f));
+        }
+    }
+    
     private IEnumerator RemoveDiceAfterSecond(float sec)
     {
         yield return new WaitForSeconds(sec);
+        IsRolling = false;
         gameObject.SetActive(false);
     }
 

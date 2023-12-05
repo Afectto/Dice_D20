@@ -29,6 +29,12 @@ public class DifficultyClass : MonoBehaviour
         _animatorValue = GetComponentInChildren<Animator>();
     }
 
+    public void RefreshDifficulty()
+    {
+        Value.color = Color.white;
+        Destroy(currentResult.gameObject);
+    }
+
     private void Update()
     {
         if (currentResult)

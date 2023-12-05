@@ -5,9 +5,7 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 public class DiceRoll : MonoBehaviour
 {
-    private TextMeshProUGUI _text;
-    private bool _isRolling;
-
+    protected TextMeshProUGUI Text;
     protected Rigidbody2D Rb; 
     protected Animator Animator;
     protected RectTransform RctTransform;
@@ -15,6 +13,7 @@ public class DiceRoll : MonoBehaviour
     protected int MAXCountHitWall;
     protected int Value;
     protected bool IsStopRolling;
+    protected bool IsRolling;
 
     public float moveSpeed = 5f;
     public Sprite resultSprites;
@@ -37,8 +36,8 @@ public class DiceRoll : MonoBehaviour
         Animator = GetComponent<Animator>();
         CountHitWall = 0;
         RctTransform = GetComponent<RectTransform>();
-        _text = GetComponentInChildren<TextMeshProUGUI>();
-        _isRolling = false;
+        Text = GetComponentInChildren<TextMeshProUGUI>();
+        IsRolling = false;
     }
 
     protected virtual void InitializeEvent()
@@ -50,9 +49,8 @@ public class DiceRoll : MonoBehaviour
 
     protected void ShowResult(bool isCritical)
     {
-        _isRolling = false;
+        IsRolling = false;
         if(!isActiveAndEnabled) return;
-        var k = this;
         OnAllBuffComplete.Invoke(Value, isCritical);
     }
 
@@ -60,26 +58,26 @@ public class DiceRoll : MonoBehaviour
     {
         if(!isActiveAndEnabled) return;
         Value += intValue;
-        _text.text = Value.ToString();
+        Text.text = Value.ToString();
     }
 
     void Update()
     {
         GetComponent<RectTransform>().rotation = Quaternion.identity;
-        if (Input.GetKeyDown(KeyCode.Space) && !_isRolling)
+        if (Input.GetKeyDown(KeyCode.Space) && !IsRolling)
         {
             StartRollingRandomDirection();
         }
     }
 
-    protected virtual void PrepareToStartRoll()
+    private void PrepareToStartRoll()
     {
-        _isRolling = true;
+        IsRolling = true;
         CountHitWall = 0;
         MAXCountHitWall = Random.Range(5, 9);
-        _text.enabled = false;
+        Text.enabled = false;
         Animator.enabled = true;
-        _text.color = Color.white;
+        Text.color = Color.white;
         Value = -1;
         IsStopRolling = false;
         RctTransform.localScale = Vector3.one;
@@ -141,8 +139,8 @@ public class DiceRoll : MonoBehaviour
     {
         if(!isActiveAndEnabled) return;
         Value = Random.Range(1, 21);
-        _text.enabled = true;
-        _text.text = Value.ToString();
+        Text.enabled = true;
+        Text.text = Value.ToString();
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
@@ -170,7 +168,7 @@ public class DiceRoll : MonoBehaviour
         
         Animator.enabled = true;
         Animator.Play("Dice" +  (isSuccess ? "Success" : "Fail"), -1, 0f);
-        _text.color = isSuccess ? new Color(1f, 0.886f, 0.62f) : new Color(0.604f, 0.149f, 0.149f);
+        Text.color = isSuccess ? new Color(1f, 0.886f, 0.62f) : new Color(0.604f, 0.149f, 0.149f);
     }
 
     protected virtual void OnDestroy()
